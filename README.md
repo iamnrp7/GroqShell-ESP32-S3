@@ -1,4 +1,4 @@
-````markdown
+
 # GroqShell on ESP32-S3 – AI Powered UART Terminal
 
 ## Overview
