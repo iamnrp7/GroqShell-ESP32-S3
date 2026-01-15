@@ -1,6 +1,6 @@
 
 
-````markdown
+
 # GroqShell on ESP32-S3 – AI Powered UART Terminal
 
 ## Overview
@@ -15,7 +15,7 @@ The project demonstrates practical embedded system integration of:
 - FreeRTOS multitasking
 - UART-based human–machine interface
 
----
+--- 
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ The project demonstrates practical embedded system integration of:
   - [Groq API Interface](#groq-api-interface)
 - [Results](#results)
 
----
+----
 
 ## Getting Started
 
