@@ -1,10 +1,6 @@
 # GroqShell-ESP32-S3
 ESP32-Groq-AI-Terminal is an interactive UART-based AI CLI built with ESP-IDF for ESP32-S3. It connects to Wi-Fi, sends user prompts to Groq’s LLM API, parses JSON responses, and displays clean, formatted AI output along with execution time.
-Below is the **FINAL, CLEAN, READY-TO-UPLOAD `README.md`**.
-It documents **everything meaningful you actually did**, is **professional**, and is suitable for **GitHub, interviews, and demos**.
 
-👉 **Copy–paste this entire content into `README.md`**
-(No edits required except Wi-Fi / API placeholders if you want)
 
 ---
 
