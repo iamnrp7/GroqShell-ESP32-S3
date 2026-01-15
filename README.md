@@ -5,10 +5,17 @@
 
 ## Overview
 
-This project implements an interactive AI shell on the **ESP32-S3** using the **Groq Cloud API** and the **LLaMA-3.1** model.  
-The system connects the ESP32-S3 to Wi-Fi, accepts user queries through UART, sends them securely over HTTPS to Groq’s OpenAI-compatible endpoint, and prints the AI responses back on the serial terminal in real time.
+This project implements an interactive AI shell on the **ESP32-S3** using the **Groq Cloud API** with the **LLaMA-3.1** large language model.  
+The system enables a user to communicate with a cloud-based LLM through a serial (UART) interface. User prompts are transmitted over Wi-Fi using HTTPS, processed by Groq’s OpenAI-compatible API, and the generated responses are displayed back on the serial terminal.
 
-This project demonstrates embedded networking, TLS communication, JSON parsing, and FreeRTOS task handling using **ESP-IDF**.
+The project demonstrates practical embedded system integration of:
+- Wi-Fi networking
+- TLS secured REST communication
+- JSON parsing
+- FreeRTOS multitasking
+- UART-based human–machine interface
+
+---
 
 ## Table of Contents
 
@@ -16,22 +23,24 @@ This project demonstrates embedded networking, TLS communication, JSON parsing, 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-  - [WiFi Setup](#wifi-setup)
-  - [UART AI Shell](#uart-ai-shell)
-  - [Groq API Communication](#groq-api-communication)
+  - [WiFi Configuration](#wifi-configuration)
+  - [UART Shell Operation](#uart-shell-operation)
+  - [Groq API Interface](#groq-api-interface)
 - [Results](#results)
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-To run this project, you will need:
+The following hardware and software are required:
 
 - ESP32-S3 development board  
-- ESP-IDF (v5.x recommended)  
-- Groq API Key  
+- ESP-IDF (version 5.x recommended)  
+- Groq Cloud API key  
 - USB cable  
-- Serial terminal (minicom / putty / screen / Arduino Serial Monitor)  
+- Serial terminal (minicom / PuTTY / screen / Arduino Serial Monitor)  
 - Internet-connected Wi-Fi network  
 
 ### Installation
@@ -43,69 +52,66 @@ git clone https://github.com/iamnrp7/GroqShell-ESP32-S3.git
 cd GroqShell-ESP32-S3
 ````
 
-2. Set the target and configure:
+2. Set target and configure the project:
 
 ```bash
 idf.py set-target esp32s3
 idf.py menuconfig
 ```
 
-3. Build and flash:
+3. Build and flash the firmware:
 
 ```bash
 idf.py build
 idf.py flash monitor
 ```
 
+---
+
 ## Usage
 
-### WiFi Setup
+### WiFi Configuration
 
-Edit the following in `main.c`:
+Update credentials in `main.c`:
 
 ```c
 #define WIFI_SSID       "Your_WiFi_Name"
 #define WIFI_PASSWORD   "Your_WiFi_Password"
 ```
 
-### UART AI Shell
+### UART Shell Operation
 
-Open the serial monitor at **115200 baud**.
-After boot, you will see:
+Open the serial terminal at **115200 baud**.
+After boot, the prompt appears:
 
 ```
 >
 ```
 
-Type a query and press Enter:
+Enter a query:
 
 ```
-> What is a Tunnel FET?
+> Explain Tunnel FET
 ```
 
-### Groq API Communication
+The response from the LLM will be printed along with execution time.
 
-The ESP32-S3 sends the prompt to:
+### Groq API Interface
 
-```
-https://api.groq.com/openai/v1/chat/completions
-```
+* Endpoint: `https://api.groq.com/openai/v1/chat/completions`
+* Model: `llama-3.1-8b-instant`
+* Protocol: HTTPS with TLS certificate verification
+* Format: JSON (parsed using cJSON)
 
-Model used:
-
-```
-llama-3.1-8b-instant
-```
-
-The response is parsed using `cJSON` and printed on UART along with execution time.
+---
 
 ## Results
 
-* Successful HTTPS connection with TLS verification
-* Real-time LLM inference using Groq Cloud
-* Interactive serial-based AI terminal
-* Measured response latency in milliseconds
-* Stable operation using FreeRTOS tasks and ESP-IDF networking stack
+* Successful secure HTTPS communication from ESP32-S3
+* Interactive UART-based AI terminal
+* End-to-end cloud LLM inference from embedded hardware
+* Typical response latency: few hundred milliseconds
+* Stable operation under FreeRTOS with Wi-Fi and TLS stack
 
 ```
 ```
