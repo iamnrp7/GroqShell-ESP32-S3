@@ -1,4 +1,6 @@
 
+
+````markdown
 # GroqShell on ESP32-S3 – AI Powered UART Terminal
 
 ## Overview
@@ -36,24 +38,24 @@ To run this project, you will need:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/iamnrp7/GroqShell-ESP32-S3.git
-   cd GroqShell-ESP32-S3
+```bash
+git clone https://github.com/iamnrp7/GroqShell-ESP32-S3.git
+cd GroqShell-ESP32-S3
 ````
 
 2. Set the target and configure:
 
-   ```bash
-   idf.py set-target esp32s3
-   idf.py menuconfig
-   ```
+```bash
+idf.py set-target esp32s3
+idf.py menuconfig
+```
 
 3. Build and flash:
 
-   ```bash
-   idf.py build
-   idf.py flash monitor
-   ```
+```bash
+idf.py build
+idf.py flash monitor
+```
 
 ## Usage
 
